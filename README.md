@@ -1,6 +1,6 @@
 # React + Vite User Management Application
 
-This project is a React application built using Vite. It provides a user-friendly interface for managing users, their todos, and posts. The application leverages modern development tools and practices, including Hot Module Replacement (HMR), reusable components, and a centralized service layer for API calls.
+This project is a React application built using Vite. It provides a user-friendly interface for managing users, their todos, and posts using fake and reliable API for testing and prototyping. The application leverages modern development tools and practices, including Hot Module Replacement (HMR), reusable components, and a centralized service layer for API calls.
 
 ## Features
 
