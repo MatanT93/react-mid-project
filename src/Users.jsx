@@ -3,7 +3,6 @@ import * as userService from './services/userService';
 import UserCard from './UserCard';
 import * as todoService from './services/todoService';
 import * as postService from './services/postService';
-import UserCardTemp from "./UserCardTemp";
 
 const Users = () => {
 
@@ -67,9 +66,16 @@ const Users = () => {
     filteredUsers[index] = tempUser;
   }
 
-  const updateData = (newTodos, newPosts) => {
-    setTodos(newTodos);
-    setPosts(newPosts);
+  const updateTodos = (newTodo) => {
+    const tempTodos = todos;
+    tempTodos.push(newTodo);
+    setTodos(tempTodos);
+  }
+
+  const updatePosts = (newPost) => {
+    const tempPosts = posts;
+    tempPosts.push(newPost);
+    setPosts(tempPosts);
   }
 
   const handleAdd = () => {
@@ -100,10 +106,9 @@ const Users = () => {
             <div style={{display: 'flex', justifyContent: 'space-evenly'}}><button onClick={handleCancel}>Cancel</button><button onClick={handleAddUser}>Add</button></div>
       </div>}
       {filteredUsers.map((u) =>
-        <UserCardTemp handleDelete={deleteUser} handleUpdate={updateUser} key={u.id} user={u} updateMainDom={updateData}
+        <UserCard handleDelete={deleteUser} handleUpdate={updateUser} key={u.id} user={u} updateMainTodos={updateTodos} updateMainPosts={updatePosts}
         todos={todos.filter((todo) => todo.userId === u.id)} maxTodoId={todos.length}
         posts={posts.filter((post) => post.userId === u.id)} maxPostId={posts.length}/>)}
-         {/* <UserCard handleDelete={deleteUser} handleUpdate={updateUser} key={u.id} user={u}/>)}     */}
     </div>
   )
 }

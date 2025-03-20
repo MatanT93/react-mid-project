@@ -1,16 +1,15 @@
-# React + Vite Project
+# React + Vite User Management Application
 
-This project is a React application built using Vite, designed to manage users, their todos, and posts. It provides a fast and efficient development environment with Hot Module Replacement (HMR) and optimized build performance.
+This project is a React application built using Vite. It provides a user-friendly interface for managing users, their todos, and posts. The application leverages modern development tools and practices, including Hot Module Replacement (HMR), reusable components, and a centralized service layer for API calls.
 
 ## Features
 
-- **React Integration**: Seamlessly integrates React with Vite for a modern development experience.
-- **Hot Module Replacement (HMR)**: Instant updates during development without refreshing the browser.
 - **User Management**: Add, update, and delete users with detailed information, including todos and posts.
 - **Todos and Posts Management**: Manage todos and posts for each user, including adding new items and marking todos as completed.
 - **Dynamic Search**: Search users by name or email.
 - **Reusable Components**: Modular and reusable components like `UserCard`, `TodoCard`, and `PostCard`.
 - **Service Layer**: Centralized API calls using Axios for todos, posts, and users.
+- **Hot Module Replacement (HMR)**: Instant updates during development without refreshing the browser.
 - **ESLint Configuration**: Includes a robust ESLint setup to ensure code quality and consistency.
 
 ## Project Structure
@@ -29,16 +28,13 @@ This project is a React application built using Vite, designed to manage users, 
     ├── App.jsx
     ├── index.css
     ├── main.jsx
-    ├── components/
-    │   ├── PostCard.jsx
-    │   ├── Posts.jsx
-    │   ├── Search.jsx
-    │   ├── TodoCard.jsx
-    │   ├── Todos.jsx
-    │   ├── TodosNPosts.jsx
-    │   ├── UserCard.jsx
-    │   ├── UserCardTemp.jsx
-    │   └── Users.jsx
+    ├── PostCard.jsx
+    ├── Posts.jsx
+    ├── Search.jsx
+    ├── TodoCard.jsx
+    ├── Todos.jsx
+    ├── UserCard.jsx
+    ├── Users.jsx
     ├── assets/
     │   └── react.svg
     └── services/
@@ -47,17 +43,36 @@ This project is a React application built using Vite, designed to manage users, 
         └── userService.js
 ```
 
-### Key Components
+## Key Components
 
 - **`App.jsx`**: The main entry point rendering the `Users` component.
 - **`Users.jsx`**: Manages the list of users, including search functionality and user CRUD operations.
-- **`UserCard.jsx` / `UserCardTemp.jsx`**: Displays individual user details and allows interaction with todos and posts.
+- **`UserCard.jsx`**: Displays individual user details and allows interaction with todos and posts.
 - **`Todos.jsx` / `Posts.jsx`**: Handles todos and posts for a specific user, including adding and updating items.
 - **`TodoCard.jsx` / `PostCard.jsx`**: Reusable components for displaying individual todos and posts.
 - **`Search.jsx`**: Placeholder for search functionality (currently unused).
 - **Service Layer**: Centralized API calls for todos, posts, and users using Axios.
 
-### Plugins Used
+## API Services
+
+The project uses the following services for API calls:
+
+- **Todos Service** ([`todoService.js`](src/services/todoService.js)):
+  - `getAllTodos()`: Fetch all todos.
+  - `getUserTodo(id)`: Fetch todos for a specific user.
+  - `addTodo()`, `updateTodo()`, `deleteTodo()`: CRUD operations for todos.
+
+- **Posts Service** ([`postService.js`](src/services/postService.js)):
+  - `getAllPosts()`: Fetch all posts.
+  - `getUserPost(id)`: Fetch posts for a specific user.
+  - `addPost()`, `updatePost()`, `deletePost()`: CRUD operations for posts.
+
+- **Users Service** ([`userService.js`](src/services/userService.js)):
+  - `getAllUsers()`: Fetch all users.
+  - `getOneUser(id)`: Fetch a specific user.
+  - `addUser()`, `updateUser()`, `deleteUser()`: CRUD operations for users.
+
+## Plugins Used
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md): Utilizes [Babel](https://babeljs.io/) for Fast Refresh and JSX transformation.
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc): Leverages [SWC](https://swc.rs/) for faster builds and Fast Refresh.
@@ -106,25 +121,6 @@ Preview the production build locally:
 ```bash
 npm run preview
 ```
-
-## API Services
-
-The project uses the following services for API calls:
-
-- **Todos Service** ([`todoService.js`](src/services/todoService.js)):
-  - `getAllTodos()`: Fetch all todos.
-  - `getUserTodo(id)`: Fetch todos for a specific user.
-  - `addTodo()`, `updateTodo()`, `deleteTodo()`: CRUD operations for todos.
-
-- **Posts Service** ([`postService.js`](src/services/postService.js)):
-  - `getAllPosts()`: Fetch all posts.
-  - `getUserPost(id)`: Fetch posts for a specific user.
-  - `addPost()`, `updatePost()`, `deletePost()`: CRUD operations for posts.
-
-- **Users Service** ([`userService.js`](src/services/userService.js)):
-  - `getAllUsers()`: Fetch all users.
-  - `getOneUser(id)`: Fetch a specific user.
-  - `addUser()`, `updateUser()`, `deleteUser()`: CRUD operations for users.
 
 ## ESLint Configuration
 
